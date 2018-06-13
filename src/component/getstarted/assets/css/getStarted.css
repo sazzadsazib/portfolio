@@ -19,6 +19,8 @@ body{
     width: 40%;
     display: inline-block;
     margin-top: 10vh;
+    z-index: 2;
+    position: relative;
 }
 .getStarted-center-title {
     font-size: 3em;
@@ -74,4 +76,179 @@ a{
     background: -webkit-linear-gradient(270deg,#0098F3,#6650E0);
     box-shadow: 0px 3px 10px rgba(0, 152, 243, 0.46);
     cursor: pointer;
+}
+
+
+/*animation css*/
+
+.minimal-cloud {
+    position: absolute;
+    margin-top: 70px;
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+}
+.minimal-cloud-2 {
+    position: absolute;
+    margin-top: 10px;
+    z-index: 1;
+    overflow: hidden;
+    padding-left: 80%;
+    width: 100%;
+}
+.cloud-minimal-1 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    width: 180px;
+    height: 18px;
+    position: relative;
+    animation: cloud-minimal-1  3s linear infinite;
+    -webkit-animation: cloud-minimal-1  3s linear infinite;
+    -moz-animation: cloud-minimal-1  3s linear infinite;
+}
+.cloud-minimal-2 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-left: 20%;
+    margin-top: 40px;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation-delay: 1s;
+    animation: cloud-minimal-1  3s linear infinite;
+    -webkit-animation: cloud-minimal-1  3s linear infinite;
+    -moz-animation: cloud-minimal-1  3s linear infinite;
+}
+.cloud-minimal-3 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-left: 10%;
+    margin-top: 30px;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation: cloud-minimal-1  3s linear infinite;
+    -webkit-animation: cloud-minimal-1  3s linear infinite;
+    -moz-animation: cloud-minimal-1  3s linear infinite;
+}
+.cloud-minimal-4 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-left: 25%;
+    margin-top: 50px;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation-delay: 2s;
+    animation: cloud-minimal-1  3s linear infinite;
+    -webkit-animation: cloud-minimal-1  3s linear infinite;
+    -moz-animation: cloud-minimal-1  3s linear infinite;
+}
+
+.cloud-minimal-5 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-top: 50px;
+    margin-left: 45%;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation-delay: 2s;
+    animation: cloud-minimal-2  3s linear infinite;
+    -webkit-animation: cloud-minimal-2  3s linear infinite;
+    -moz-animation: cloud-minimal-2  3s linear infinite;
+}
+.cloud-minimal-6 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-top: 50px;
+    margin-left: 60%;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation-delay: 2s;
+    animation: cloud-minimal-2  3s linear infinite;
+    -webkit-animation: cloud-minimal-2  3s linear infinite;
+    -moz-animation: cloud-minimal-2  3s linear infinite;
+}
+.cloud-minimal-7 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+
+    margin-top: 50px;
+    margin-left: 33%;
+    width: 180px;
+    height: 15px;
+    position: relative;
+    animation-delay: 2s;
+    animation: cloud-minimal-2  3s linear infinite;
+    -webkit-animation: cloud-minimal-2  3s linear infinite;
+    -moz-animation: cloud-minimal-2  3s linear infinite;
+}
+.cloud-minimal-8 {
+    background-image: url('../images/minimal-lines.svg');
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin-left: 55%;
+    margin-top: 50px;
+    width: 180px;
+    height: 20px;
+    position: relative;
+    animation-delay: 2s;
+    animation: cloud-minimal-2  3s linear infinite;
+    -webkit-animation: cloud-minimal-2  3s linear infinite;
+    -moz-animation: cloud-minimal-2  3s linear infinite;
+}
+
+
+@-webkit-keyframes cloud-minimal-1 {
+    0% {
+        left: 10%;
+        opacity: 0;
+    }
+    15% {
+        left: 20%;
+        opacity: 1;
+    }
+    50% {
+        left: 80%;
+        opacity: 0.4;
+    }
+    85% {
+        opacity: 20;
+        opacity: 1;
+    }
+    100% {
+        left: 10%;
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes cloud-minimal-2 {
+    0% {
+        right: 10%;
+        opacity: 0;
+    }
+    15% {
+        right: 20%;
+        opacity: 1;
+    }
+    50% {
+        right: 80%;
+        opacity: 0.0;
+    }
+    85% {
+        opacity: 1;
+    }
+    100% {
+        right: 10%;
+        opacity: 0;
+    }
 }

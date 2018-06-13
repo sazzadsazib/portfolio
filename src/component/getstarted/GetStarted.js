@@ -8,7 +8,17 @@ class GetStarted extends Component {
     render() {
         return(
 
-            <div>
+            <div style={{maxHeight: '100vh'}}>
+                <div className="minimal-cloud">
+                    <div className="cloud-minimal-1"> </div>
+                    <div className="cloud-minimal-2"> </div>
+                    <div className="cloud-minimal-3"> </div>
+                    <div className="cloud-minimal-4"> </div>
+                    <div className="cloud-minimal-5"> </div>
+                    <div className="cloud-minimal-6"> </div>
+                    <div className="cloud-minimal-7"> </div>
+                    <div className="cloud-minimal-8"> </div>
+                </div>
                 <div className="container-getStarted">
                     <img className="my-illustration" src={sazib} alt="Meh"/>
                     <p className="getStarted-center-title">Hello</p>
