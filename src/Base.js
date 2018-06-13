@@ -12,6 +12,7 @@ class Base extends Component {
         super(props);
         this.state = {
             width: window.innerWidth,
+            StalkingTime: new Date(),
         };
     }
     handleWindowSizeChange = () => {
@@ -33,10 +34,10 @@ class Base extends Component {
                 <div>
                     <BrowserRouter>
                         <Switch>
-                            <Route exact path='/' component={GetStarted}/>
-                            <Route  exact path='/home' component={Home}/>
-                            <Route  exact ath='/profile' component={Profile}/>
-                            <Route path='*' exact={true} component={Four0Four} />
+                            <Route exact path='/'  render={(props)=><GetStarted StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route  exact path='/home' render={(props)=><Home StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route  exact ath='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route path='*' exact={true} render={(props)=><Four0Four StalkingTime={this.state.StalkingTime} history={props.history}/>} />
                         </Switch>
                     </BrowserRouter>
                 </div>
