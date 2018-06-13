@@ -1,0 +1,47 @@
+.center-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.bg-cover {
+    background-image: url(../images/getStarted-bg.svg);
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+    text-align: center;
+}
+.getStarted-center-title {
+    font-size: 3em;
+    color: #3d3d3d;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    margin: 10px 0px 0px;
+}
+.getStarted-center-subtitle {
+    font-size: 1.4em;
+    background: -webkit-linear-gradient(right,#0098F3,#6650E0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    margin: 0px;
+}
+.getStarted-clickhere {
+    margin: 4vh 0px 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-size: 0.7em;
+
+}
+.gradient-text {
+    background: -webkit-linear-gradient(right,#0098F3,#6650E0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+

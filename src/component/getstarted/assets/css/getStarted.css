@@ -192,20 +192,20 @@ a{
     -webkit-animation: cloud-minimal-2  3s linear infinite;
     -moz-animation: cloud-minimal-2  3s linear infinite;
 }
-.cloud-minimal-8 {
-    background-image: url('../images/minimal-lines.svg');
-    background-repeat: no-repeat;
-    opacity: 1;
-    margin-left: 55%;
-    margin-top: 50px;
-    width: 180px;
-    height: 20px;
-    position: relative;
-    animation-delay: 2s;
-    animation: cloud-minimal-2  3s linear infinite;
-    -webkit-animation: cloud-minimal-2  3s linear infinite;
-    -moz-animation: cloud-minimal-2  3s linear infinite;
-}
+/*.cloud-minimal-8 {*/
+    /*background-image: url('../images/minimal-lines.svg');*/
+    /*background-repeat: no-repeat;*/
+    /*opacity: 1;*/
+    /*margin-left: 55%;*/
+    /*margin-top: 50px;*/
+    /*width: 180px;*/
+    /*height: 20px;*/
+    /*position: relative;*/
+    /*animation-delay: 2s;*/
+    /*animation: cloud-minimal-2  3s linear infinite;*/
+    /*-webkit-animation: cloud-minimal-2  3s linear infinite;*/
+    /*-moz-animation: cloud-minimal-2  3s linear infinite;*/
+/*}*/
 
 
 @-webkit-keyframes cloud-minimal-1 {

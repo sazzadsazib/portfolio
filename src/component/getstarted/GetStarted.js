@@ -17,7 +17,6 @@ class GetStarted extends Component {
                     <div className="cloud-minimal-5"> </div>
                     <div className="cloud-minimal-6"> </div>
                     <div className="cloud-minimal-7"> </div>
-                    <div className="cloud-minimal-8"> </div>
                 </div>
                 <div className="container-getStarted">
                     <img className="my-illustration" src={sazib} alt="Meh"/>
