@@ -1,0 +1,93 @@
+.profile-container {
+    margin: 20px 10px 10px;
+    text-align: center;
+}
+.badge-age {
+    padding: 10px;
+    width: 18px;
+    border-radius: 40px;
+    color: #fff;
+    font-family: roboto;
+    background: -webkit-linear-gradient(right,#0098F3,#6650E0);
+    margin: 0 auto;
+    z-index: 999999;
+    margin: -27px 95PX 0PX auto;
+    position: relative;
+
+}
+.avatar-section {
+    position: relative;
+    margin-top: 40px;
+}
+
+.badge-position > span {
+    color: #fff!important;
+    background: -webkit-linear-gradient(270deg,#0098F3,#6650E0);
+    margin: 10px 10px 0px 0px!important;
+    padding: 10px !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold!important;
+    box-shadow: 0px 2px 4px #00000078!important;
+}
+.avatar-content-info {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: capitalize;
+
+}
+.titleName {
+    color: #424242;
+    margin: 20px 0px 5px 0px;
+}
+.subTitleName {
+    font-size: 12px;
+    color: #848484;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 0px;
+}
+.description-content-info {
+    font-size: 10px;
+    color: #848484;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 17px 28px 5px ;
+    text-align: center;
+    line-height: 1.5em;
+}
+.profile-info-section {
+    margin-top: 40px;
+}
+.contact-info-section > .title-name {
+    padding: 7px;
+    margin: 0 auto;
+    background: -webkit-linear-gradient(180deg,#0098F3,#6650E0);
+    box-shadow: 0px 1px 8px #03A9F5;
+    border-radius: 200px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    width: 50%;
+    /*letter-spacing: 5px;*/
+}
+
+.contact-item {
+    vertical-align: middle;
+    display: -webkit-inline-box;
+    margin-top: 20px;
+}
+.contact-item-text {
+    font-size: 14px;
+    color: #5D5D5D;
+    margin: 6px;
+    font-family: roboto;
+    font-weight: normal;
+    margin-left: 40px;
+    margin-top: -25px;
+}
+.contact-item-wrapper {
+    text-align: left;
+    margin-left: 25px;
+}

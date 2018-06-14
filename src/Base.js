@@ -47,7 +47,7 @@ class Base extends Component {
                 <BrowserRouter>
                     <Switch>
                         <Route exact path='/' component={DesktopPreview}/>
-                        <Route path='*' exact={true} component={Four0Four} />
+                        <Route path='*' exact={true} component={DesktopPreview} />
                     </Switch>
                 </BrowserRouter>
             )
