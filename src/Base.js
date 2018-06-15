@@ -5,6 +5,7 @@ import DesktopPreview from "./component/desktop/DesktopPreview";
 import Home from "./component/home/Home";
 import Profile from "./component/profile/Profile";
 import Four0Four from "./component/fourofour/Four0Four";
+import Github from "./component/Github/Github";
 
 
 class Base extends Component {
@@ -36,7 +37,8 @@ class Base extends Component {
                         <Switch>
                             <Route exact path='/'  render={(props)=><GetStarted StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/home' render={(props)=><Home StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
-                            <Route  exact ath='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route  exact path='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route path='*' exact={true} render={(props)=><Four0Four StalkingTime={this.state.StalkingTime} history={props.history}/>} />
                         </Switch>
                     </BrowserRouter>
