@@ -1,3 +1,6 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
 .profile-container {
     margin: 20px 10px 10px;
     text-align: center;
@@ -90,4 +93,59 @@
 .contact-item-wrapper {
     text-align: left;
     margin-left: 25px;
+}
+.row {
+    width: 100%;
+    display: inline-flex;
+    text-align: left;
+}
+.row > .w-25 {
+    width: 25%;
+}
+.row > .w-70 {
+    width: 70%;
+    margin-left: 10px;
+}
+.w-o-5 {
+    margin-left: 5%;
+}
+.work-icon {
+    width: 100%;
+    border-radius: 200px;
+    margin-top: 10px;
+}
+.work-title {
+    font-size: 10px;
+    font-weight: lighter;
+    color: #5D5D5D;
+    margin-bottom: 5px;
+}
+.work-company-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+    color: #2b2b2b;
+}
+.work-company-duration {
+    font-size: 10px;
+    font-weight: 400;
+    margin: 5px 0px;
+    color: #5D5D5D;
+}
+.work-description {
+    font-size: 10px;
+    font-weight: normal;
+    width: 90%;
+    text-align: justify;
+    line-height: 15px;
+    color: #5D5D5D;
+}
+.work-description-2 {
+    font-size: 12px;
+    font-weight: bold;
+    width: 90%;
+    text-align: justify;
+    line-height: 15px;
+    color: #5D5D5D;
+    margin-top: 0px;
 }
