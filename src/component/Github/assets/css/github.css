@@ -2,3 +2,6 @@
     opacity: 0.8 !important;
     background:-webkit-linear-gradient(180deg,#0098F3,#6650E0) !important;
 }
+.center {
+    text-align: center;
+}

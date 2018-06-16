@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
@@ -181,7 +181,7 @@ class NavBarMain extends React.Component {
                         <Typography variant="title" color="inherit" style={{flex: 1, fontSize: '16px', textTransform: 'uppercase'}}>
                             {this.props.AppbarName}
                         </Typography>
-                        {/*<Button color="inherit">Login</Button>*/}
+                        {this.props.button ?<Button onClick={this.props.buttonaction} color="inherit">{this.props.buttonName}</Button> : ""}
                     </Toolbar>
                 </AppBar>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
