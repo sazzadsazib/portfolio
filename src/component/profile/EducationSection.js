@@ -10,10 +10,10 @@ class EducationSection extends Component {
                 </div>
                 <br/><br/>
                 {this.props.Education ?
-                    <div className="work-section-profile">
+                    <div className="education-section-profile">
                         {this.props.Education.map((item,i)=>{
                             return(
-                                <div className="row" key={i}>
+                                <div className="row mb-15px" key={i}>
                                     <div className="w-o-5 w-25">
                                         <img src={item.picture} className="work-icon" alt={item.workPlace}/>
                                     </div>

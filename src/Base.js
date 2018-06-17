@@ -38,7 +38,8 @@ class Base extends Component {
                             <Route exact path='/'  render={(props)=><GetStarted StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/home' render={(props)=><Home StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
-                            <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
+                            <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history} />}/>
+                            {/*you can add user="github username" to fetch specific user git data default: sazzadsazib*/}
                             <Route path='*' exact={true} render={(props)=><Four0Four StalkingTime={this.state.StalkingTime} history={props.history}/>} />
                         </Switch>
                     </BrowserRouter>
