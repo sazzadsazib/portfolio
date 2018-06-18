@@ -37,7 +37,7 @@ You can see live demo of this project here
 
 ## Authors
 
-* **[Sazzad Sazib](https://github.com/sazib)** 
+* **[Sazzad Sazib](https://github.com/sazzadsazib)** 
 
 
 ## License
