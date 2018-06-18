@@ -1,5 +1,4 @@
 # Portfolio  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sazzadsazib/UtilityCss/blob/master/LICENSE)  
-![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/react.svg)
 
 Hey I am Sazzad, I am implementing my portfolio using reactJS, its a Progressive Web App
 
