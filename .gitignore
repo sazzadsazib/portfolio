@@ -20,6 +20,7 @@
 .firebaserc
 .firebase.json
 firebase.json
+firebase-debug.log
 
 # misc
 .DS_Store
