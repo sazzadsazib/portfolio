@@ -33,12 +33,12 @@ class Github extends Component {
     }
 
     fetchData() {
-        if(sessionStorage.getItem('githubData') === null || sessionStorage.getItem('githubRepoData') === null ) {
+        if(localStorage.getItem('githubData') === null || localStorage.getItem('githubRepoData') === null ) {
             // console.log("its in");
             Axios.get('https://api.github.com/users/'+this.state.usertoFetch)
                 .then(result => {
                     if (result.status === 200) {
-                        sessionStorage.setItem('githubData',JSON.stringify(result.data));
+                        localStorage.setItem('githubData',JSON.stringify(result.data));
                         this.setState({
                             userInfo: result.data,
                         },() => {
@@ -51,7 +51,7 @@ class Github extends Component {
                             })
                                 .then(repos => {
                                     if (repos.status === 200) {
-                                        sessionStorage.setItem('githubRepoData', JSON.stringify(repos.data));
+                                        localStorage.setItem('githubRepoData', JSON.stringify(repos.data));
                                         const get10Repo = repos.data;
                                         get10Repo.splice(10);
 
@@ -72,12 +72,12 @@ class Github extends Component {
                 .catch(e => this.handleClick())
         }else {
             // console.log('Data already exist read it from here');
-            // console.log(JSON.parse(sessionStorage.getItem('githubData')));
-            // console.log(JSON.parse(sessionStorage.getItem('githubRepoData')));
-            const get10Repo = JSON.parse(sessionStorage.getItem('githubRepoData'));
+            // console.log(JSON.parse(localStorage.getItem('githubData')));
+            // console.log(JSON.parse(localStorage.getItem('githubRepoData')));
+            const get10Repo = JSON.parse(localStorage.getItem('githubRepoData'));
             get10Repo.splice(10);
             this.setState({
-                userInfo: JSON.parse(sessionStorage.getItem('githubData')),
+                userInfo: JSON.parse(localStorage.getItem('githubData')),
                 repoData: get10Repo,
             })
         }
@@ -94,7 +94,7 @@ class Github extends Component {
 
 
     refreshgithubData() {
-        sessionStorage.removeItem('githubData');
+        localStorage.removeItem('githubData');
         // console.log("removed session data");
         this.fetchData();
         this.handleClick2();
@@ -255,7 +255,7 @@ class Github extends Component {
                     {this.state.repoData.length === 10 ?
                         <Button onClick={()=>{
                             this.setState({
-                                repoData : JSON.parse(sessionStorage.getItem('githubRepoData')),
+                                repoData : JSON.parse(localStorage.getItem('githubRepoData')),
                             })
                         } }
                                 variant="raised"
