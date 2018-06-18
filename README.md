@@ -16,6 +16,14 @@ To run this project, use this commands,
    
    `yarn start | npm start`
 
+## Change Log
+
+#### 18 June 2018
+
+* Updated Service Worker
+* Finished github fetching
+* Updated Offline Support and PWA Functionality
+
 
 
 ### Live Demo
