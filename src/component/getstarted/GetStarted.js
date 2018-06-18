@@ -23,7 +23,7 @@ class GetStarted extends Component {
                     <p className="getStarted-center-title">Hello</p>
                     <p className="getStarted-center-subtitle">I am Sazzad</p>
                     <p className="getStarted-clickhere">Click <span className="gradient-text">GET STARTED</span> to Continue</p>
-                    <Link style={{color: '#ffffff'}} to={'/home'}>
+                    <Link style={{color: '#ffffff'}} to={'/profile'}>
                         <button className="getStarted-continue-button gradient-button">Get Started</button>
                     </Link>
                 </div>

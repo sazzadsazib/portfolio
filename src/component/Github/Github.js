@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TimeAgo from 'react-timeago';
 import Tooltip from '@material-ui/core/Tooltip';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 let stylebg = {background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)', color: 'white', margin: '0px 0px 10px 10px'};
 
@@ -23,6 +24,7 @@ class Github extends Component {
         this.state = {
             userInfo: [],
             repoData: [],
+            loading: true,
             usertoFetch: "sazzadsazib",
             open: false,
             open2: false,
@@ -30,6 +32,8 @@ class Github extends Component {
         };
         this.fetchData = this.fetchData.bind(this);
         this.refreshgithubData = this.refreshgithubData.bind(this);
+        this.leaveloading = this.leaveloading.bind(this);
+        this.enterloading = this.enterloading.bind(this);
     }
 
     fetchData() {
@@ -57,6 +61,8 @@ class Github extends Component {
 
                                         this.setState({
                                             repoData: get10Repo
+                                        },()=>{
+                                            setTimeout(this.leaveloading,'1000');
                                         })
                                     }else {
                                         this.handleClick();
@@ -79,7 +85,8 @@ class Github extends Component {
             this.setState({
                 userInfo: JSON.parse(localStorage.getItem('githubData')),
                 repoData: get10Repo,
-            })
+            });
+            setTimeout(this.leaveloading,'1000');
         }
     }
     handleClick =  () => {
@@ -92,10 +99,17 @@ class Github extends Component {
         this.setState({ open: false });
     };
 
+    leaveloading = () => {
+        this.setState({ loading: false });
+    };
+    enterloading = () => {
+        this.setState({ loading: true });
+    };
 
     refreshgithubData() {
         localStorage.removeItem('githubData');
         // console.log("removed session data");
+        this.enterloading();
         this.fetchData();
         this.handleClick2();
     }
@@ -115,157 +129,215 @@ class Github extends Component {
         return(
             <div>
                 <NavBarMain AppbarName={"Github"} StalkingTime={this.props.StalkingTime} history={this.props.history} button={true} buttonName={ <Icon >autorenew</Icon>} buttonaction={this.refreshgithubData}/>
-                <div className="git-profile">
-                    <Card style={{margin: '10px'}}>
-                        <CardMedia
-                            style={{height: 0,
-                                paddingTop: '56.25%'}}
-                            image={data.avatar_url}
-                            title={data.login}
-                        />
-                        <CardContent>
-                            <Typography gutterBottom variant="headline" component="h2" style={{marginBottom: 0}}>
-                                {data.name ? data.name : "No Name Found"}
-                            </Typography>
-                            <Typography variant="subheading" gutterBottom style={{color: 'grey'}}>
-                                {data.login ? data.login : "No UserName Found"}
-                            </Typography>
+                {this.state.loading ?
+                    <div className="center">
+                    <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} />
+                    </div>
+                    :
+                    <div className="git-profile">
+                        <Card style={{margin: '10px'}}>
+                            <CardMedia
+                                style={{
+                                    height: 0,
+                                    paddingTop: '56.25%'
+                                }}
+                                image={data.avatar_url}
+                                title={data.login}
+                            />
+                            <CardContent>
+                                <Typography gutterBottom variant="headline" component="h2" style={{marginBottom: 0}}>
+                                    {data.name ? data.name : "No Name Found"}
+                                </Typography>
+                                <Typography variant="subheading" gutterBottom style={{color: 'grey'}}>
+                                    {data.login ? data.login : "No UserName Found"}
+                                </Typography>
 
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                BIO : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.bio? data.bio : "No Bio Found"}</span>
-                            </Typography>
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                BLOG : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.blog ? data.blog : "No Blog Found"}</span>
-                            </Typography>
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                CREATED : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.created_at ?<TimeAgo date={data.created_at} /> : "No created time Found"}</span>
-                            </Typography>
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                LAST UPDATED : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.updated_at ?<TimeAgo date={data.updated_at} />: "No updated time found"}</span>
-                            </Typography>
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                REPOSITORY COUNT : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.public_repos? data.public_repos : "Not Available"}</span>
-                            </Typography>
-                            <Typography component="title" style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
-                                GIST COUNT : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.public_gists ? data.public_gists : "Not Avaiable"}</span>
-                            </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    BIO : <span style={{
+                                    color: 'grey',
+                                    fontWeight: 'normal'
+                                }}>{data.bio ? data.bio : "No Bio Found"}</span>
+                                </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    BLOG : <span style={{
+                                    color: 'grey',
+                                    fontWeight: 'normal'
+                                }}>{data.blog ? data.blog : "No Blog Found"}</span>
+                                </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    CREATED : <span style={{color: 'grey', fontWeight: 'normal'}}>{data.created_at ?
+                                    <TimeAgo date={data.created_at}/> : "No created time Found"}</span>
+                                </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    LAST UPDATED : <span
+                                    style={{color: 'grey', fontWeight: 'normal'}}>{data.updated_at ?
+                                    <TimeAgo date={data.updated_at}/> : "No updated time found"}</span>
+                                </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    REPOSITORY COUNT : <span style={{
+                                    color: 'grey',
+                                    fontWeight: 'normal'
+                                }}>{data.public_repos ? data.public_repos : "Not Available"}</span>
+                                </Typography>
+                                <Typography component="title"
+                                            style={{marginTop: 8, fontWeight: 'bold', color: '#0D7DC4'}}>
+                                    GIST COUNT : <span style={{
+                                    color: 'grey',
+                                    fontWeight: 'normal'
+                                }}>{data.public_gists ? data.public_gists : "Not Avaiable"}</span>
+                                </Typography>
 
-                        </CardContent>
+                            </CardContent>
 
 
-                        <CardActions style={{margin: '-40px 0px 10px 0px'}}>
-                            <Tooltip id="tooltip-fab" title="Visit" enterTouchDelay={0}>
-                                <Button variant="fab"
-                                        mini color="secondary"
-                                        aria-label="visit"
-                                        href={data.html_url}
-                                        target="_blank"
-                                        style={{background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)', color: 'white', marginLeft: 'auto', marginRight:10}}
+                            <CardActions style={{margin: '-40px 0px 10px 0px'}}>
+                                <Tooltip id="tooltip-fab" title="Visit" enterTouchDelay={0}>
+                                    <Button variant="fab"
+                                            mini color="secondary"
+                                            aria-label="visit"
+                                            href={data.html_url}
+                                            target="_blank"
+                                            style={{
+                                                background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)',
+                                                color: 'white',
+                                                marginLeft: 'auto',
+                                                marginRight: 10
+                                            }}
+                                    >
+                                        <Icon>arrow_forward</Icon>
+                                    </Button>
+                                </Tooltip>
+                            </CardActions>
+                        </Card>
+                        <div className="repo-container">
+                            {repos ?
+                                repos.map((item, i) => {
+                                    return (
+                                        <Card style={{margin: '10px'}} key={item.id}>
+                                            <CardContent>
+                                                <Typography color="textSecondary">
+                                                    {item.language ? item.language : "Not Available"}
+                                                </Typography>
+                                                <Typography variant="title" style={{fontSize: '20px'}}>
+                                                    {item.name ? item.name : "Not Available"}
+                                                </Typography>
+                                                <Typography variant="title" style={{
+                                                    fontSize: '14px',
+                                                    color: '#0098F3',
+                                                    textTransform: "lowercase",
+                                                    marginBottom: "5px"
+                                                }}>
+                                                    {item.default_branch ? item.default_branch : "Not Available"}
+                                                </Typography>
+                                                <Typography color="textSecondary">
+                                                    Push: &nbsp;{item.pushed_at ?
+                                                    <TimeAgo date={item.pushed_at}/> : "Not Available"}
+                                                </Typography>
+                                                <Typography color="textSecondary">
+                                                    Updated: &nbsp;{item.pushed_at ?
+                                                    <TimeAgo date={item.updated_at}/> : "Not Available"}
+                                                </Typography>
+                                                <Typography color="textSecondary">
+                                                    Created: &nbsp;{item.created_at ?
+                                                    <TimeAgo date={item.created_at}/> : "Not Available"}
+                                                </Typography>
+                                                <Typography color="textSecondary">
+                                                    Size: &nbsp;{item.size ?
+                                                    <span>{item.size} KB</span> : "Not Available"}
+                                                </Typography>
+                                                <br/>
+                                                <Typography variant="title" style={{fontSize: '16px', color: 'grey'}}>
+                                                    Description:
+                                                </Typography>
+                                                <Typography component="p" style={{color: 'grey'}}>
+                                                    {item.description ? item.description : "No Desciption Provided"}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions>
+                                                <Tooltip id="tooltip-fab" title="COPY CLONE URL" enterTouchDelay={0}>
+                                                    <Button variant="fab"
+                                                            mini color="secondary"
+                                                            aria-label="visit"
+                                                            onClick={() => {
+                                                                const el = document.createElement('textarea');  // Create a <textarea> element
+                                                                el.value = "git clone " + item.clone_url;                                 // Set its value to the string that you want copied
+                                                                el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
+                                                                el.style.position = 'absolute';
+                                                                el.style.left = '-9999px';                      // Move outside the screen to make it invisible
+                                                                document.body.appendChild(el);                  // Append the <textarea> element to the HTML document
+                                                                const selected =
+                                                                    document.getSelection().rangeCount > 0        // Check if there is any content selected previously
+                                                                        ? document.getSelection().getRangeAt(0)     // Store selection if found
+                                                                        : false;                                    // Mark as false to know no selection existed before
+                                                                el.select();                                    // Select the <textarea> content
+                                                                document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)
+                                                                document.body.removeChild(el);                  // Remove the <textarea> element
+                                                                if (selected) {                                 // If a selection existed before copying
+                                                                    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
+                                                                    document.getSelection().addRange(selected);   // Restore the original selection
+                                                                }
+                                                                stylebg = {
+                                                                    background: '-webkit-linear-gradient(' + Math.floor((90 * (Math.random() % 4) * 100) % 360) + 'deg,#0098F3,#6650E0)',
+                                                                    color: 'white',
+                                                                    margin: '0px 0px 10px 10px'
+                                                                }
+                                                                this.setState({
+                                                                    renderfunc: true,
+                                                                })
+                                                            }}
+                                                            style={stylebg}
+                                                    >
+                                                        <Icon style={{padding: "3px"}}>file_copy</Icon>
+                                                    </Button>
+                                                </Tooltip>
+                                                <Tooltip id="tooltip-fab" title="Visit" enterTouchDelay={0}>
+                                                    <Button variant="fab"
+                                                            mini color="secondary"
+                                                            aria-label="visit"
+                                                            href={item.html_url}
+                                                            target="_blank"
+                                                            style={{
+                                                                background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)',
+                                                                color: 'white',
+                                                                marginLeft: 'auto',
+                                                                marginRight: 10
+                                                            }}
+                                                    >
+                                                        <Icon>arrow_forward</Icon>
+                                                    </Button>
+                                                </Tooltip>
+                                            </CardActions>
+                                        </Card>
+                                    )
+                                })
+                                : ""}
+                        </div>
+                        <div className="center mb-20px">
+                            {this.state.repoData.length === 10 ?
+                                <Button onClick={() => {
+                                    this.setState({
+                                        repoData: JSON.parse(localStorage.getItem('githubRepoData')),
+                                    })
+                                }}
+                                        variant="raised"
+                                        style={{
+                                            display: 'inline-block',
+                                            background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)',
+                                            color: 'white',
+                                            pointer: 'cursor'
+                                        }}
                                 >
-                                    <Icon>arrow_forward</Icon>
+                                    See All repos
                                 </Button>
-                            </Tooltip>
-                        </CardActions>
-                    </Card>
-                    <div className="repo-container">
-                        {repos ?
-                            repos.map((item,i)=>{
-                                return(
-                                    <Card style={{margin: '10px'}} key={item.id}>
-                                        <CardContent>
-                                            <Typography color="textSecondary">
-                                                {item.language ? item.language: "Not Available"}
-                                            </Typography>
-                                            <Typography variant="title" style={{fontSize: '20px'}}>
-                                                {item.name? item.name : "Not Available"}
-                                            </Typography>
-                                            <Typography variant="title" style={{fontSize: '14px', color: '#0098F3', textTransform: "lowercase", marginBottom:"5px"}}>
-                                                {item.default_branch? item.default_branch : "Not Available"}
-                                            </Typography>
-                                            <Typography  color="textSecondary">
-                                                Push: &nbsp;{item.pushed_at? <TimeAgo date={item.pushed_at} />: "Not Available"}
-                                            </Typography>
-                                            <Typography  color="textSecondary">
-                                                Updated: &nbsp;{item.pushed_at? <TimeAgo date={item.updated_at} />: "Not Available"}
-                                            </Typography>
-                                            <Typography  color="textSecondary">
-                                                Created: &nbsp;{item.created_at? <TimeAgo date={item.created_at} />: "Not Available"}
-                                            </Typography>
-                                            <Typography  color="textSecondary">
-                                                Size: &nbsp;{item.size? <span>{item.size} KB</span>: "Not Available"}
-                                            </Typography>
-                                            <br/>
-                                            <Typography variant="title" style={{fontSize: '16px', color: 'grey'}}>
-                                                Description:
-                                            </Typography>
-                                            <Typography component="p"style={{color: 'grey'}}>
-                                                {item.description ? item.description : "No Desciption Provided"}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Tooltip id="tooltip-fab" title="COPY CLONE URL" enterTouchDelay={0}>
-                                                <Button variant="fab"
-                                                        mini color="secondary"
-                                                        aria-label="visit"
-                                                        onClick={()=>{
-                                                            const el = document.createElement('textarea');  // Create a <textarea> element
-                                                            el.value = "git clone "+item.clone_url;                                 // Set its value to the string that you want copied
-                                                            el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
-                                                            el.style.position = 'absolute';
-                                                            el.style.left = '-9999px';                      // Move outside the screen to make it invisible
-                                                            document.body.appendChild(el);                  // Append the <textarea> element to the HTML document
-                                                            const selected =
-                                                                document.getSelection().rangeCount > 0        // Check if there is any content selected previously
-                                                                    ? document.getSelection().getRangeAt(0)     // Store selection if found
-                                                                    : false;                                    // Mark as false to know no selection existed before
-                                                            el.select();                                    // Select the <textarea> content
-                                                            document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)
-                                                            document.body.removeChild(el);                  // Remove the <textarea> element
-                                                            if (selected) {                                 // If a selection existed before copying
-                                                                document.getSelection().removeAllRanges();    // Unselect everything on the HTML document
-                                                                document.getSelection().addRange(selected);   // Restore the original selection
-                                                            }
-                                                            stylebg ={background: '-webkit-linear-gradient('+Math.floor((90*(Math.random()%4)*100)%360)+'deg,#0098F3,#6650E0)', color: 'white', margin: '0px 0px 10px 10px'}
-                                                            this.setState({
-                                                                renderfunc: true,
-                                                            })
-                                                        }}
-                                                        style={stylebg}
-                                                >
-                                                    <Icon style={{padding: "3px"}}>file_copy</Icon>
-                                                </Button>
-                                            </Tooltip>
-                                            <Tooltip id="tooltip-fab" title="Visit" enterTouchDelay={0}>
-                                                <Button variant="fab"
-                                                        mini color="secondary"
-                                                        aria-label="visit"
-                                                        href={item.html_url}
-                                                        target="_blank"
-                                                        style={{background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)', color: 'white', marginLeft: 'auto', marginRight: 10}}
-                                                >
-                                                    <Icon>arrow_forward</Icon>
-                                                </Button>
-                                            </Tooltip>
-                                        </CardActions>
-                                    </Card>
-                                )})
-                            : ""}
+                                : ""}
+                        </div>
                     </div>
-                    <div className="center mb-20px">
-                    {this.state.repoData.length === 10 ?
-                        <Button onClick={()=>{
-                            this.setState({
-                                repoData : JSON.parse(localStorage.getItem('githubRepoData')),
-                            })
-                        } }
-                                variant="raised"
-                                style={{display: 'inline-block', background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)', color: 'white', pointer: 'cursor'}}
-                        >
-                        See All repos
-                    </Button>
-                        :""}
-                    </div>
-                </div>
+                }
                 <Snackbar
                     className="Error-snackbar"
                     open={this.state.open}
