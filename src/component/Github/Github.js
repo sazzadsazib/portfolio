@@ -259,7 +259,6 @@ class Github extends Component {
                             })
                         } }
                                 variant="raised"
-                                href="#contained-buttons"
                                 style={{display: 'inline-block', background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)', color: 'white', pointer: 'cursor'}}
                         >
                         See All repos
