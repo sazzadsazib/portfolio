@@ -76,7 +76,7 @@ class Feed extends Component {
                     <div>
                         {this.state.postData ?
                             this.state.postData.map((item,i)=>{
-                                console.log(item);
+                                // console.log(item);
                                 return(
                                     <Card style={{margin: 10}} key={i}>
                                         <CardContent>
