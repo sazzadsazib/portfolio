@@ -129,7 +129,7 @@ class SideList extends Component {
                             </Icon>
                         </ListItemIcon>
                         <Link to={"/projects"}>
-                            <ListItemText primary="Contact" />
+                            <ListItemText primary="Projects" />
                         </Link>
                     </ListItem>
                     <ListItem button>
@@ -145,11 +145,11 @@ class SideList extends Component {
                     <ListItem button>
                         <ListItemIcon>
                             <Icon>
-                                info
+                                settings
                             </Icon>
                         </ListItemIcon>
-                        <Link to={"/info"}>
-                            <ListItemText primary="Info" />
+                        <Link to={"/settings"}>
+                            <ListItemText primary="Settings" />
                         </Link>
                     </ListItem>
                 </List>
