@@ -31,7 +31,7 @@ class Settings extends Component {
             <div>
                 <NavBarMain AppbarName={"Settings"} StalkingTime={this.props.StalkingTime} history={this.props.history}/>
 
-                <div style={{margin: 0}} >
+                <div style={{margin: '0px 20px', background: 'white', borderRadius: 5, boxShadow: '0px 0px 4px #3333331f'}} >
                     <List >
                         <ListItem>
                             <ListItemIcon>
