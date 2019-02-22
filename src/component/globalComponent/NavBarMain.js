@@ -195,8 +195,8 @@ class NavBarMain extends React.Component {
             <div style={{ flexGrow: 1, marginBottom: 80}}>
                 <AppBar position="fixed">
                     <Toolbar style={{background: 'linear-gradient(to right, #4D61E4 , #0395F2)'}}>
-                        <IconButton style={{ marginLeft: -12, marginRight: 20, cursor: 'pointer'}} color="inherit" aria-label="Menu">
-                            <MenuIcon onClick={this.toggleDrawer('left', true)}/>
+                        <IconButton onClick={this.toggleDrawer('left', true)} style={{ marginLeft: -12, marginRight: 20, cursor: 'pointer'}} color="inherit" aria-label="Menu">
+                            <MenuIcon />
                         </IconButton>
                         <Typography variant="title" color="inherit" style={{flex: 1, fontSize: '16px', textTransform: 'uppercase'}}>
                             {this.props.AppbarName}

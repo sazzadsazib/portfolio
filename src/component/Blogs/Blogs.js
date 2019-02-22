@@ -31,8 +31,6 @@ class Blogs extends Component {
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
-
-                }
             </React.Fragment>
         )
     }

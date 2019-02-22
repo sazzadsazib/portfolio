@@ -25,7 +25,7 @@ src/env.js
 .firebase.json
 firebase.json
 firebase-debug.log
-
+.firebase/
 # misc
 .DS_Store
 .env.local

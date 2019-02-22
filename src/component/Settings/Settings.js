@@ -6,8 +6,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '@material-ui/core/Icon';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
+import Fab from '@material-ui/core/Fab';
 import '../Github/assets/css/github.css';
 
 
@@ -39,14 +39,14 @@ class Settings extends Component {
                             </ListItemIcon>
                             <ListItemText primary="Clear Cache" />
                             <ListItemSecondaryAction>
-                                <Button onClick={this.clearCache} variant="fab" mini aria-label="delete" style={{
+                                <Fab onClick={this.clearCache}  size={'small'} aria-label="delete" style={{
                                     background: '-webkit-linear-gradient(180deg,#0098F3,#6650E0)',
                                     color: 'white',
                                     marginLeft: 'auto',
                                     marginRight: 10
                                 }}>
                                     <Icon>cached</Icon>
-                                </Button>
+                                </Fab>
                             </ListItemSecondaryAction>
                         </ListItem>
                     </List>

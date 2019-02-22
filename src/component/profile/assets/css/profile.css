@@ -26,11 +26,12 @@ body{
 .badge-position > span {
     color: #fff!important;
     background: -webkit-linear-gradient(270deg,#0098F3,#6650E0);
-    margin: 10px 10px 0px 0px!important;
-    padding: 10px !important;
+    margin: 20px 20px 0px 0px!important;
+    padding: 15px 10px !important;
     font-family: 'Roboto', sans-serif;
     font-weight: bold!important;
     box-shadow: 0px 2px 4px #00000078!important;
+    border-radius: 40px;
 }
 .avatar-content-info {
     text-align: center;

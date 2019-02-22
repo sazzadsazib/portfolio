@@ -21,7 +21,7 @@ class WorkSection extends Component {
                                     <p className="work-title">{item.workDesignation}</p>
                                     <p className="work-company-title">{item.workPlace}</p>
                                     <p className="work-company-duration">{item.workDuration}</p>
-                                    <p className="work-description">{item.workDescription}. Visit: <a href={item.workLink} target="_blank" style={{fontWeight: '600', color: '#347dec'}}>Here</a></p>
+                                    <p className="work-description">{item.workDescription}. Visit: <a href={item.workLink} target="_blank" rel="noopener noreferrer" style={{fontWeight: '600', color: '#347dec'}}>Here</a></p>
                                 </div>
                             </div>
                         )
