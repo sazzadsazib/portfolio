@@ -26,8 +26,10 @@ class Blogs extends Component {
                             <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} /> : ''
                         }
 
-                        <iframe title={"medium"} style={{width: '100%', border: 0, marginTop: '-20px', height: '100vh', opacity: this.state.loadedState}}
-                                src="https://medium.com/@sazzadsazib">
+                        <iframe
+                            title={"medium"}
+                            style={{width: '100%', border: 0, marginTop: '-20px', height: '100vh', opacity: this.state.loadedState}}
+                            src="https://medium.com/@sazzadsazib">
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
