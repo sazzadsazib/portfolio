@@ -9,6 +9,7 @@ import Github from "./component/Github/Github";
 // import Feed from "./component/Feed/Feed";
 import Settings from "./component/Settings/Settings";
 import Blogs from "./component/Blogs/Blogs";
+import OpenSource from "./component/OpenSource/OpenSource";
 
 
 class Base extends Component {
@@ -44,6 +45,7 @@ class Base extends Component {
                             <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             {/*<Route  exact path='/feed' render={(props)=><Feed StalkingTime={this.state.StalkingTime} history={props.history} />}/>*/}
                             <Route  exact path='/blogs' render={(props)=><Blogs StalkingTime={this.state.StalkingTime} history={props.history} />}/>
+                            <Route  exact path='/contribution' render={(props)=><OpenSource StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             <Route  exact path='/settings' render={(props)=><Settings StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             {/*you can add user="github username" to fetch specific user git data default: sazzadsazib*/}
                             <Route path='*' exact={true} render={(props)=><Four0Four StalkingTime={this.state.StalkingTime} history={props.history}/>} />

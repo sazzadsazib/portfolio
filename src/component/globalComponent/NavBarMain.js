@@ -122,6 +122,16 @@ class SideList extends Component {
                             <ListItemText primary="Blogs" />
                         </ListItem>
                     </Link>
+                    <Link to={"/contribution"}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Icon>
+                                    ballot
+                                </Icon>
+                            </ListItemIcon>
+                            <ListItemText primary="Open Source" />
+                        </ListItem>
+                    </Link>
                     {/*<ListItem button>*/}
                         {/*<ListItemIcon>*/}
                           {/*<Icon>*/}

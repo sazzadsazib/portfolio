@@ -28,6 +28,7 @@ class Blogs extends Component {
 
                         <iframe
                             title={"medium"}
+                            x-frame-options= 'SAMEORIGIN'
                             style={{width: '100%', border: 0, marginTop: '-20px', height: '100vh', opacity: this.state.loadedState}}
                             src="https://medium.com/@sazzadsazib">
                             <p>Your browser does not support iframes.</p>
