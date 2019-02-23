@@ -20,7 +20,7 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 const styles = theme => ({
     card: {
         maxWidth: 400,
-        margin: '10px auto',
+        margin: '10px auto 20px',
     },
     media: {
         height: 0,
@@ -41,6 +41,7 @@ const styles = theme => ({
     },
     avatar: {
         backgroundColor: red[500],
+        boxShadow: '0px 0px 14px #009bff61',
     },
 });
 
