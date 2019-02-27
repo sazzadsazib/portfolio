@@ -19,7 +19,7 @@ import SvgIcon from '@material-ui/core/SvgIcon';
 
 const styles = theme => ({
     card: {
-        maxWidth: 400,
+        maxWidth: '90%',
         margin: '10px auto 20px',
     },
     media: {
