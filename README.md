@@ -1,4 +1,4 @@
-# Portfolio  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sazzadsazib/UtilityCss/blob/master/LICENSE)  
+# Portfolio  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sazzadsazib/UtilityCss/blob/master/LICENSE)  [![Netlify Status](https://api.netlify.com/api/v1/badges/97399a9d-e2b0-4549-bdb7-b3aded01540b/deploy-status)](https://app.netlify.com/sites/sazib/deploys)
 
 Hey I am Sazzad, I am implementing my portfolio using reactJS, its a Progressive Web App
 
