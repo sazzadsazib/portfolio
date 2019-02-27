@@ -9,6 +9,8 @@ import wordCloudReact from './assets/images/word-cloud-react.jpg';
 import utilty from './assets/images/utilitycss3.jpg';
 import arun from './assets/images/arun.png';
 import reactHeatmapGrid from './assets/images/react-heatmap-grid.jpg';
+import reactCover from './assets/images/reactCover.jpg';
+import reactLogo from './assets/images/reactLogo.jpg';
 
 class OpenSource extends Component {
 
@@ -25,6 +27,16 @@ class OpenSource extends Component {
                     link: "https://www.npmjs.com/package/nes.css",
                     gitLink: "https://github.com/nostalgic-css/NES.css",
                     usage: "npm i nes.css --save"
+                },
+                {
+                    avatar: reactLogo,
+                    title: "reactjs/bn.reactjs.org",
+                    subHeader: "version: 0.0.1",
+                    media: reactCover,
+                    description: "ইউজার ইন্টারফেস তৈরির জন্য একটি জাভাস্ক্রিপ্ট লাইব্রেরি(বাংলায়)",
+                    link: "https://www.npmjs.com/package/react",
+                    gitLink: "https://github.com/reactjs/bn.reactjs.org",
+                    usage: "npm i react --save"
                 },
                 {
                     avatar: arun,
