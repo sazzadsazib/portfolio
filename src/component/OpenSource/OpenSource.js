@@ -11,12 +11,14 @@ import arun from './assets/images/arun.png';
 import reactHeatmapGrid from './assets/images/react-heatmap-grid.jpg';
 import reactCover from './assets/images/reactCover.jpg';
 import reactLogo from './assets/images/reactLogo.jpg';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class OpenSource extends Component {
 
     constructor(props){
         super(props);
         this.state = {
+            loadedState: true,
             projects : [
                 {
                     avatar: Ness,
@@ -78,29 +80,33 @@ class OpenSource extends Component {
                     gitLink: "https://github.com/sazzadsazib/UtilityCss",
                     usage: "npm i utilitycss3 --save"
                 },
-
-
             ]
         }
+    }
+    componentDidMount() {
+        setTimeout(()=>this.setState({loadedState: false}),1000)
     }
     render() {
         return(
             <div>
                 <NavBarMain AppbarName={"Open Source"} StalkingTime={this.props.StalkingTime}
                             history={this.props.history}/>
-                <div>
-                    {this.state.projects.map((project)=>
-                        <CardComponent
-                            avatar={project.avatar}
-                            title={project.title}
-                            subheader={project.subHeader}
-                            media={project.media}
-                            description={project.destination}
-                            link={project.link}
-                            GithubLink={project.gitLink}
-                            usage={project.usage}
-                        />
-                    )}
+                <div className="center">
+                    {this.state.loadedState  ?
+                        <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} /> :
+                        this.state.projects.map((project)=>
+                            <CardComponent
+                                avatar={project.avatar}
+                                title={project.title}
+                                subheader={project.subHeader}
+                                media={project.media}
+                                description={project.destination}
+                                link={project.link}
+                                GithubLink={project.gitLink}
+                                usage={project.usage}
+                            />
+                        )
+                    }
                 </div>
             </div>
         )
