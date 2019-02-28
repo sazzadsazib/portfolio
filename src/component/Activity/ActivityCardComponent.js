@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ReactMarkdown from 'react-markdown';
 
 const styles = {
     card: {
@@ -60,7 +61,7 @@ function ActivityCardComponent(props) {
     function switchCaseTypeBody(props) {
         switch (props.type){
             case "IssueCommentEvent":
-                return <span>{props.payload.comment.body}</span>;
+                return <span><ReactMarkdown  source={props.payload.comment.body} /></span>;
             case "PushEvent":
                 return <span>PushEvent</span>;
             case "DeleteEvent":
@@ -100,7 +101,7 @@ function ActivityCardComponent(props) {
                     {/*{switchCaseTypeBody(event)}*/}
                 {/*</Typography>*/}
                 <Typography className={classes.pos} color="textSecondary">
-                    "{switchCaseTypeBody(event)}"
+                    {switchCaseTypeBody(event)}
                 </Typography>
                 <Typography component="p">
                     well meaning and kindly.
