@@ -61,27 +61,30 @@ function ActivityCardComponent(props) {
                 return <span>
                     Has Commented on a <a target={'_blank'} style={{fontWeight: 'bold', color: '#42a5f5'}} href={props.payload.issue.html_url}>Issue</a></span>;
             case "PushEvent":
-                return <span>PushEvent</span>;
+                return <span>Has Pushed {props.payload.size} commit to <span style={{fontWeight: 'bold', color: '#42a5f5'}}>{props.repo.name}</span></span>;
             case "DeleteEvent":
-                return <span>DeleteEvent</span>;
+                return <span>Deleted a {props.payload.ref_type} <span style={{fontWeight: 'bold', color: '#42a5f5'}}>{props.payload.ref}</span></span>;
             case "PullRequestEvent":
                 return <span>
                     <span className={classes.capitalize}>{props.payload.action}</span> a Pull Request on &nbsp;
                     <a target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.repo.name}</a>
                 </span>;
             case "CreateEvent":
-                console.log(props);
                 return <span>Created a {props.payload.ref_type} <span style={{fontWeight: 'bold', color: '#42a5f5'}}>{props.payload.ref}</span></span>;
             case "PullRequestReviewCommentEvent":
-                return <span>PullRequestReviewCommentEvent</span>;
+                return <span>Has Commented on a Pull Request <a target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.payload.pull_request.title}</a></span>;
             case "WatchEvent":
-                return <span>WatchEvent</span>;
+                let url = ''+props.repo.url;
+                url = url.replace('api.','');
+                url = url.replace('/repos','');
+                return <span>Has a starred <a style={{color: '#218cef'}} target={'_blank'} href={url}>{props.repo.name}</a></span>;
             case "GollumEvent":
-                return <span>GollumEvent</span>;
+                let urlG = ''+props.repo.url;
+                urlG = urlG.replace('api.','');
+                urlG = urlG.replace('/repos','');
+                return <span>Has Updated Wiki on <a style={{color: '#218cef'}} target={'_blank'} href={urlG}>{props.repo.name}</a> </span>;
             case "IssuesEvent":
-                return <span>IssuesEvent</span>;
-
-
+                return <span>Has {props.payload.action} an <a style={{color: '#218cef'}}  target={"_blank"} href={props.payload.issue.html_url}> Issue</a></span>;
             default:
                 return '';
         }
@@ -92,15 +95,33 @@ function ActivityCardComponent(props) {
             case "IssueCommentEvent":
                 return <div>
                     <div  className={classes.blockquote}>
-                    <ReactMarkdown  source={props.payload.comment.body} />
+                        <ReactMarkdown  source={props.payload.comment.body} />
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
                 </div>;
             case "PushEvent":
-                return <span>PushEvent</span>;
+                return <div>
+                    <br/>
+                    <div className={classes.blockquote}>
+                        {props.payload.commits.map((commit,i)=>
+                            <div key={i} style={{padding: 10}}>
+                                {commit.message}
+                            </div>
+                        )}
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
+                </div>;
             case "DeleteEvent":
-                return <span>DeleteEvent</span>;
+                return <div>
+                    <div className={classes.blockquote}>
+                        <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
+                        <div style={{fontSize: 12}}>{props.payload.description}</div>
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
+                </div>;
             case "PullRequestEvent":
                 return <div>
                     <div className={classes.blockquote}>
@@ -127,13 +148,48 @@ function ActivityCardComponent(props) {
                     <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
                 </div>;
             case "PullRequestReviewCommentEvent":
-                return <span>PullRequestReviewCommentEvent</span>;
+                return <div>
+                    <div className={classes.blockquote}>
+                        <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.payload.pull_request.title}</div>
+                        <div style={{fontSize: 12}}>{props.payload.pull_request.body}</div>
+                    </div>
+                    <br/>
+                    <div className={classes.status}>
+                        {props.payload.comment.body}
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
+                </div>;
             case "WatchEvent":
-                return <span>WatchEvent</span>;
+                return <div>
+                    <div className={classes.blockquote}>
+                        <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
+                        <div style={{fontSize: 12}}>{props.payload.description}</div>
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
+                </div>;
             case "GollumEvent":
-                return <span>GollumEvent</span>;
+                return <div>
+                    <div className={classes.blockquote}>
+                        {props.payload.pages.map((page,i)=>
+                            <div style={{marginBottom: 8}} key={i}>
+                                Has {page.action} page titled <a style={{color: '#218cef'}} href={page.html_url}> {page.title}</a>
+                            </div>
+                        )}
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
+                </div>;
             case "IssuesEvent":
-                return <span>IssuesEvent</span>;
+                return <div>
+                    <div className={classes.blockquote}>
+                        <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
+                        <div style={{fontSize: 12}}>{props.payload.issue.body}</div>
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Closed at : {moment(props.created_at).fromNow()}</div>
+                </div>;
 
 
             default:
@@ -145,23 +201,23 @@ function ActivityCardComponent(props) {
         switch (props.type){
             case "IssueCommentEvent":
                 return props.payload.issue.html_url;
-            case "PushEvent":
-                return ;
-            case "DeleteEvent":
-                return ;
             case "PullRequestEvent":
                 return  props.payload.pull_request.html_url;
-            case "CreateEvent":
-                return ;
+            case "CreateEvent": case "PushEvent": case "DeleteEvent": case "WatchEvent":
+            let url = props.repo.url;
+            url = url.replace('api.','');
+            url = url.replace('/repos','');
+            return url;
             case "PullRequestReviewCommentEvent":
-                return ;
-            case "WatchEvent":
-                return ;
+                return props.payload.comment.html_url;
             case "GollumEvent":
-                return ;
+                let urlG = props.repo.url;
+                urlG = urlG.replace('api.','');
+                urlG = urlG.replace('/repos','');
+                urlG = urlG+"/wiki";
+                return urlG;
             case "IssuesEvent":
-                return ;
-
+                return props.payload.issue.html_url;
 
             default:
                 return '';
