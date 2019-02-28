@@ -25,6 +25,12 @@ const styles = {
         marginBottom: 12,
         fontSize: 18
     },
+    blockquote: {
+        color: '#666',
+        margin: 0,
+        paddingLeft: '1em',
+        borderLeft: '0.5em #eee solid',
+    },
 };
 
 function ActivityCardComponent(props) {
@@ -61,7 +67,7 @@ function ActivityCardComponent(props) {
     function switchCaseTypeBody(props) {
         switch (props.type){
             case "IssueCommentEvent":
-                return <span><ReactMarkdown  source={props.payload.comment.body} /></span>;
+                return <div className={classes.blockquote}><ReactMarkdown  source={props.payload.comment.body} /></div>;
             case "PushEvent":
                 return <span>PushEvent</span>;
             case "DeleteEvent":
@@ -100,9 +106,9 @@ function ActivityCardComponent(props) {
                 {/*<Typography variant="h5" component="h2">*/}
                     {/*{switchCaseTypeBody(event)}*/}
                 {/*</Typography>*/}
-                <Typography className={classes.pos} color="textSecondary">
+                <div>
                     {switchCaseTypeBody(event)}
-                </Typography>
+                </div>
                 <Typography component="p">
                     well meaning and kindly.
                     <br />
