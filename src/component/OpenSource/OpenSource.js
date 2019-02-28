@@ -94,8 +94,9 @@ class OpenSource extends Component {
                 <div className="center">
                     {this.state.loadedState  ?
                         <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} /> :
-                        this.state.projects.map((project)=>
+                        this.state.projects.map((project,i)=>
                             <CardComponent
+                                key={i}
                                 avatar={project.avatar}
                                 title={project.title}
                                 subheader={project.subHeader}

@@ -132,6 +132,17 @@ class SideList extends Component {
                             <ListItemText primary="Open Source" />
                         </ListItem>
                     </Link>
+                    <Link to={"/activity"}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Icon>
+                                    list
+                                </Icon>
+                            </ListItemIcon>
+                            <ListItemText primary="Activity Tracker" />
+                        </ListItem>
+                    </Link>
+
                     {/*<ListItem button>*/}
                         {/*<ListItemIcon>*/}
                           {/*<Icon>*/}

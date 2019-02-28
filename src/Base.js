@@ -10,6 +10,7 @@ import Github from "./component/Github/Github";
 import Settings from "./component/Settings/Settings";
 import Blogs from "./component/Blogs/Blogs";
 import OpenSource from "./component/OpenSource/OpenSource";
+import ActivityComponent from "./component/Activity/ActivityComponent";
 
 
 class Base extends Component {
@@ -40,7 +41,7 @@ class Base extends Component {
                     <BrowserRouter>
                         <Switch>
                             <Route exact path='/'  render={(props)=><GetStarted StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
-                            {/*<Route  exact path='/home' render={(props)=><Home StalkingTime={this.state.StalkingTime} history={props.history}/>}/>*/}
+                            <Route  exact path='/activity' render={(props)=><ActivityComponent StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             {/*<Route  exact path='/feed' render={(props)=><Feed StalkingTime={this.state.StalkingTime} history={props.history} />}/>*/}
