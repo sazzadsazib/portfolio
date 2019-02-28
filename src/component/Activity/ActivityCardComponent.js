@@ -85,6 +85,19 @@ function ActivityCardComponent(props) {
                 return <span>Has Updated Wiki on <a style={{color: '#218cef'}} target={'_blank'} href={urlG}>{props.repo.name}</a> </span>;
             case "IssuesEvent":
                 return <span>Has {props.payload.action} an <a style={{color: '#218cef'}}  target={"_blank"} href={props.payload.issue.html_url}> Issue</a></span>;
+            case "CommitCommentEvent":
+                return 'Triggered when a commit comment is created.';
+            case "ForkEvent":
+                let urlFE = ''+props.repo.url;
+                urlFE = urlFE.replace('api.','');
+                urlFE = urlFE.replace('/repos','');
+                return <span>Has Forked <a style={{color: '#218cef'}} target={'_blank'} href={urlFE}>{props.repo.name}</a> </span>;
+            case "LabelEvent":
+                return 'Triggered when a repositorys label is created, edited, or deleted.';
+            case "MilestoneEvent":
+                return "Triggered when a milestone is created, closed, opened, edited, or deleted.";
+            case "PublicEvent":
+                return "Triggered when a private repository is open sourced. Without a doubt: the best GitHub event.";
             default:
                 return '';
         }
@@ -190,7 +203,24 @@ function ActivityCardComponent(props) {
                     <br/>
                     <div className={classes.createdTime}>Closed at : {moment(props.created_at).fromNow()}</div>
                 </div>;
+            case "CommitCommentEvent":
+                return 'Triggered when a commit comment is created.';
+            case "ForkEvent":
+                return <div>
+                    <div className={classes.blockquote}>
+                        <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.payload.forkee.full_name}</div>
+                        <div style={{fontSize: 12}}>{props.payload.forkee.description}</div>
+                    </div>
+                    <br/>
+                    <div className={classes.createdTime}>Forked at : {moment(props.created_at).fromNow()}</div>
+                </div>;
 
+            case "LabelEvent":
+                return 'Triggered when a repositorys label is created, edited, or deleted.';
+            case "MilestoneEvent":
+                return "Triggered when a milestone is created, closed, opened, edited, or deleted.";
+            case "PublicEvent":
+                return "Triggered when a private repository is open sourced. Without a doubt: the best GitHub event.";
 
             default:
                 return '';
@@ -218,7 +248,17 @@ function ActivityCardComponent(props) {
                 return urlG;
             case "IssuesEvent":
                 return props.payload.issue.html_url;
-
+            case "CommitCommentEvent":
+                return 'Triggered when a commit comment is created.';
+            case "ForkEvent":
+                console.log(props);
+                return props.payload.forkee.html_url;
+            case "LabelEvent":
+                return 'Triggered when a repositorys label is created, edited, or deleted.';
+            case "MilestoneEvent":
+                return "Triggered when a milestone is created, closed, opened, edited, or deleted.";
+            case "PublicEvent":
+                return "Triggered when a private repository is open sourced. Without a doubt: the best GitHub event.";
             default:
                 return '';
         }
