@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import NavBarMain from "../globalComponent/NavBarMain";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Offline, Online } from "react-detect-offline";
+import OfflineImage from './../globalComponent/assets/images/cry.svg';
 
 class Blogs extends Component {
 
@@ -21,6 +23,7 @@ class Blogs extends Component {
             <React.Fragment>
                 <NavBarMain AppbarName={"Blogs"} StalkingTime={this.props.StalkingTime}
                             history={this.props.history}/>
+                <Online>
                     <div className="center">
                         {this.state.loadedState === 0 ?
                             <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} /> : ''
@@ -34,6 +37,13 @@ class Blogs extends Component {
                             <p>Your browser does not support iframes.</p>
                         </iframe>
                     </div>
+                </Online>
+                <Offline>
+                    <div className={'center'}>
+                        <img src={OfflineImage} style={{width: '20%',marginTop: '10%',opacity: 0.6}} alt={'offline'}/>
+                        <p className={'gradient-text'}>Hola! You Need Internet Connection<br/>To See This Page</p>
+                    </div>
+                </Offline>
             </React.Fragment>
         )
     }
