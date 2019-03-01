@@ -119,7 +119,7 @@ function ActivityCardComponent(props) {
                     <div className={classes.blockquote}>
                         {props.payload.commits.map((commit,i)=>
                             <div key={i} style={{padding: 10}}>
-                                {commit.message}
+                                <ReactMarkdown source={commit.message} />
                             </div>
                         )}
                     </div>
@@ -130,7 +130,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
-                        <div style={{fontSize: 12}}>{props.payload.description}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}> <ReactMarkdown source={props.payload.description} /></div>
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
@@ -139,7 +139,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.payload.pull_request.title}</div>
-                        <div style={{fontSize: 12}}>{props.payload.pull_request.body}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}> <ReactMarkdown source={props.payload.pull_request.body} /></div>
                     </div>
                     <br/>
                     <div className={classes.status}>
@@ -155,7 +155,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
-                        <div style={{fontSize: 12}}>{props.payload.description}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}><ReactMarkdown source={props.payload.description} /></div>
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
@@ -164,7 +164,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.payload.pull_request.title}</div>
-                        <div style={{fontSize: 12}}>{props.payload.pull_request.body}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}><ReactMarkdown source={props.payload.pull_request.body} /></div>
                     </div>
                     <br/>
                     <div className={classes.status}>
@@ -177,7 +177,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
-                        <div style={{fontSize: 12}}>{props.payload.description}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}><ReactMarkdown source={props.payload.description} /></div>
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Created at : {moment(props.created_at).fromNow()}</div>
@@ -198,7 +198,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.repo.name}</div>
-                        <div style={{fontSize: 12}}>{props.payload.issue.body}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}><ReactMarkdown source={props.payload.issue.body} /></div>
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Closed at : {moment(props.created_at).fromNow()}</div>
@@ -209,7 +209,7 @@ function ActivityCardComponent(props) {
                 return <div>
                     <div className={classes.blockquote}>
                         <div style={{color: '#4a4a4a', marginBottom: 8}}>{props.payload.forkee.full_name}</div>
-                        <div style={{fontSize: 12}}>{props.payload.forkee.description}</div>
+                        <div style={{fontSize: 12, wordWrap: 'break-word'}}><ReactMarkdown source={props.payload.forkee.description} /></div>
                     </div>
                     <br/>
                     <div className={classes.createdTime}>Forked at : {moment(props.created_at).fromNow()}</div>
@@ -251,7 +251,7 @@ function ActivityCardComponent(props) {
             case "CommitCommentEvent":
                 return 'Triggered when a commit comment is created.';
             case "ForkEvent":
-                console.log(props);
+               // console.log(props);
                 return props.payload.forkee.html_url;
             case "LabelEvent":
                 return 'Triggered when a repositorys label is created, edited, or deleted.';
@@ -285,6 +285,7 @@ function ActivityCardComponent(props) {
             <CardActions>
                 <Button className={classes.githubButton} target={'_blank'} href={getLink(event)} size="small">See In Github</Button>
             </CardActions>
+            <br/>
         </Card>
     );
 }

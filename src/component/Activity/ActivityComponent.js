@@ -25,6 +25,7 @@ class ActivityComponent extends Component {
         Axios.get('https://api.github.com/users/'+this.state.usertoFetch+'/events')
             .then(result => {
                 if (result.status === 200) {
+                    localStorage.setItem('activityData',JSON.stringify(result.data));
                    this.setState({
                        dataSource: result.data
                    },()=>{
@@ -34,7 +35,15 @@ class ActivityComponent extends Component {
             }).catch((e)=>console.log(e)))
     }
     componentDidMount() {
-        this.fetchData();
+        if(localStorage.getItem('activityData') === null ){
+            this.fetchData();
+        }else {
+            this.setState({
+                dataSource: JSON.parse(localStorage.getItem('activityData')),
+            },()=>{
+                setTimeout(()=>this.setState({isLoading: true}),1000);
+            });
+        }
     }
 
     render() {
