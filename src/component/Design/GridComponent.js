@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useState } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -6,6 +6,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import ImgsViewer from 'react-images-viewer'
 
 const styles = theme => ({
     root: {
@@ -25,6 +26,7 @@ const styles = theme => ({
 
 function GridComponent(props) {
     const { classes } = props;
+    const [currentImage, setImage] = useState('');
 
     return (
         <div className={classes.root}>
@@ -36,7 +38,7 @@ function GridComponent(props) {
                             title={tile.title}
                             subtitle={<span>by: {tile.author}</span>}
                             actionIcon={
-                                <IconButton className={classes.icon}>
+                                <IconButton className={classes.icon} onClick={()=>setImage(tile.img)}  >
                                     <InfoIcon />
                                 </IconButton>
                             }
@@ -44,6 +46,12 @@ function GridComponent(props) {
                     </GridListTile>
                 ))}
             </GridList>
+            <ImgsViewer
+                imgs={[{ src: currentImage }]}
+                currImg={0}
+                isOpen={currentImage !== '' ? true : false}
+                onClose={()=>setImage('')}
+            />
         </div>
     );
 }
