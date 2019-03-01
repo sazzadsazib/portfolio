@@ -11,6 +11,7 @@ import Settings from "./component/Settings/Settings";
 import Blogs from "./component/Blogs/Blogs";
 import OpenSource from "./component/OpenSource/OpenSource";
 import ActivityComponent from "./component/Activity/ActivityComponent";
+import DesignComponent from "./component/Design/DesignComponent";
 
 
 class Base extends Component {
@@ -44,6 +45,7 @@ class Base extends Component {
                             <Route  exact path='/activity' render={(props)=><ActivityComponent StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/profile' render={(props)=><Profile StalkingTime={this.state.StalkingTime} history={props.history}/>}/>
                             <Route  exact path='/github' render={(props)=><Github StalkingTime={this.state.StalkingTime} history={props.history} />}/>
+                            <Route  exact path='/design' render={(props)=><DesignComponent StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             {/*<Route  exact path='/feed' render={(props)=><Feed StalkingTime={this.state.StalkingTime} history={props.history} />}/>*/}
                             <Route  exact path='/blogs' render={(props)=><Blogs StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             <Route  exact path='/contribution' render={(props)=><OpenSource StalkingTime={this.state.StalkingTime} history={props.history} />}/>
