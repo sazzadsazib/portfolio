@@ -15,6 +15,8 @@ import Avatar from '@material-ui/core/Avatar';
 import NavListPicture from './assets/images/sazibList.png';
 import Icon from '@material-ui/core/Icon';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import { Offline, Online } from "react-detect-offline";
+import Tooltip from '@material-ui/core/Tooltip';
 
 const stalkingText = {
     textAlign: 'center',
@@ -232,7 +234,24 @@ class NavBarMain extends React.Component {
                         <Typography variant="title" color="inherit" style={{flex: 1, fontSize: '16px', textTransform: 'uppercase'}}>
                             {this.props.AppbarName}
                         </Typography>
+                        <Online>
+                            <Tooltip title="Online" aria-label="Online">
+                            <Icon style={{color: 'white', opacity: 0.7}} color="disabled">
+                                signal_wifi_4_bar
+                            </Icon>
+                            </Tooltip>
+                            &nbsp;
+                        </Online>
+                        <Offline>
+                            <Tooltip title="Offline" aria-label="Offline">
+                                <Icon style={{color: 'white', opacity: 0.7}} color="disabled">
+                                    signal_wifi_off
+                                </Icon>
+                            </Tooltip>
+                        </Offline>
+                        <Online>
                         {this.props.button ?<Button onClick={this.props.buttonaction} color="inherit">{this.props.buttonName}</Button> : ""}
+                        </Online>
                     </Toolbar>
                 </AppBar>
                 <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
