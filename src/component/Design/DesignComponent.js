@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import NavBarMain from "../globalComponent/NavBarMain";
 import GridComponent  from './GridComponent';
-import { Offline, Online } from "react-detect-offline";
-import OfflineImage from '../globalComponent/assets/images/cry.svg';
+// import { Offline, Online } from "react-detect-offline";
+// import OfflineImage from '../globalComponent/assets/images/cry.svg';
 
 class DesignComponent extends Component {
     constructor(props) {
@@ -88,17 +88,17 @@ class DesignComponent extends Component {
                 <NavBarMain AppbarName={"Design"} StalkingTime={this.props.StalkingTime}
                             history={this.props.history}/>
                 <div>
-                    <Online>
+                    {/*<Online>*/}
                         <div style={{margin: 20, border: '8px solid white', boxShadow: '0px 0px 6px #ccc'}}>
                             <GridComponent tilesData={this.state.tilesData}/>
                         </div>
-                    </Online>
-                    <Offline>
-                        <div className={'center'}>
-                            <img src={OfflineImage} style={{width: '20%',marginTop: '10%',opacity: 0.6}} alt={'offline'}/>
-                            <p className={'gradient-text'}>Hola! You Need Internet Connection<br/>To See This Page</p>
-                        </div>
-                    </Offline>
+                    {/*</Online>*/}
+                    {/*<Offline>*/}
+                        {/*<div className={'center'}>*/}
+                            {/*<img src={OfflineImage} style={{width: '20%',marginTop: '10%',opacity: 0.6}} alt={'offline'}/>*/}
+                            {/*<p className={'gradient-text'}>Hola! You Need Internet Connection<br/>To See This Page</p>*/}
+                        {/*</div>*/}
+                    {/*</Offline>*/}
 
                 </div>
             </div>
