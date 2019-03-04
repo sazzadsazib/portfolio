@@ -32,13 +32,13 @@ function GridComponent(props) {
         <div className={classes.root}>
             <GridList cellHeight={180} className={classes.gridList}>
                 {props.tilesData.map(tile => (
-                    <GridListTile key={tile.img}>
+                    <GridListTile key={tile.img}  onClick={()=>setImage(tile.img)}>
                         <img src={tile.img} alt={tile.title} />
                         <GridListTileBar
                             title={tile.title}
                             subtitle={<span>by: {tile.author}</span>}
                             actionIcon={
-                                <IconButton className={classes.icon} onClick={()=>setImage(tile.img)}  >
+                                <IconButton className={classes.icon} >
                                     <InfoIcon />
                                 </IconButton>
                             }
