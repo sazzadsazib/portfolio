@@ -10,7 +10,7 @@ class Blogs extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            profileDelay: 500,
+            profileDelay: 1000,
             loadedState: 0,
         }
     }

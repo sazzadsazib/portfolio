@@ -40,7 +40,7 @@ function BlogCard(props) {
         <Typography variant="caption" style={{marginTop: 5}}>
             {props.description.length > 160 ? props.description.substring(0,160)+"..." : props.description}
         </Typography>
-        <br/><br/>
+        <br/>
         <div className={'blog--card__centerdiv'}>
             <Button href={props.link} target={'_blank'} variant="contained" color="secondary" className={'blog--card__button'}>
                 <img src={MediumIcon} style={{width: 25}} alt={'medium'}/>&nbsp; Read More at Medium
