@@ -3,13 +3,14 @@ import NavBarMain from "../globalComponent/NavBarMain";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Offline, Online } from "react-detect-offline";
 import OfflineImage from './../globalComponent/assets/images/cry.svg';
+import BlogLists from './BlogLists';
 
 class Blogs extends Component {
 
     constructor(props) {
         super(props);
         this.state= {
-            profileDelay: 3000,
+            profileDelay: 500,
             loadedState: 0,
         }
     }
@@ -24,19 +25,11 @@ class Blogs extends Component {
                 <NavBarMain AppbarName={"Blogs"} StalkingTime={this.props.StalkingTime}
                             history={this.props.history}/>
                 <Online>
-                    <div className="center">
                         {this.state.loadedState === 0 ?
-                            <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} /> : ''
+                            <div className="center">
+                                <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} />
+                            </div>: <div id={'blog-root'}><BlogLists /></div>
                         }
-
-                        <iframe
-                            title={"medium"}
-                            x-frame-options= 'SAMEORIGIN'
-                            style={{width: '100%', border: 0, marginTop: '-20px', height: '100vh', opacity: this.state.loadedState}}
-                            src="https://medium.com/@sazzadsazib">
-                            <p>Your browser does not support iframes.</p>
-                        </iframe>
-                    </div>
                 </Online>
                 <Offline>
                     <div className={'center'}>
