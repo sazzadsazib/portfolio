@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import NavBarMain from "../globalComponent/NavBarMain";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Offline, Online } from "react-detect-offline";
-import OfflineImage from './../globalComponent/assets/images/cry.svg';
+// import OfflineImage from './../globalComponent/assets/images/cry.svg';
 import BlogLists from './BlogLists';
 
 class Blogs extends Component {
@@ -32,10 +32,15 @@ class Blogs extends Component {
                         }
                 </Online>
                 <Offline>
-                    <div className={'center'}>
-                        <img src={OfflineImage} style={{width: '20%',marginTop: '10%',opacity: 0.6}} alt={'offline'}/>
-                        <p className={'gradient-text'}>Hola! You Need Internet Connection<br/>To See This Page</p>
-                    </div>
+                    {/*<div className={'center'}>*/}
+                        {/*<img src={OfflineImage} style={{width: '20%',marginTop: '10%',opacity: 0.6}} alt={'offline'}/>*/}
+                        {/*<p className={'gradient-text'}>Hola! You Need Internet Connection<br/>To See This Page</p>*/}
+                    {/*</div>*/}
+                    {this.state.loadedState === 0 ?
+                        <div className="center">
+                            <CircularProgress style={{ color: 'primary', margin: '20vh auto 0px auto' }} thickness={4} />
+                        </div>: <div id={'blog-root'}><BlogLists /></div>
+                    }
                 </Offline>
             </React.Fragment>
         )

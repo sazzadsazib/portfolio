@@ -6,6 +6,7 @@ import moment from 'moment';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import MediumIcon from './assets/images/medium.svg';
+import {Online, Offline} from 'react-detect-offline';
 
 function BlogCard(props) {
     return <div className={'blog--card__container'}>
@@ -42,9 +43,16 @@ function BlogCard(props) {
         </Typography>
         <br/>
         <div className={'blog--card__centerdiv'}>
-            <Button href={props.link} target={'_blank'} variant="contained" color="secondary" className={'blog--card__button'}>
-                <img src={MediumIcon} style={{width: 25}} alt={'medium'}/>&nbsp; Read More at Medium
-            </Button>
+            <Online>
+                <Button href={props.link} target={'_blank'} variant="contained" color="secondary" className={'blog--card__button'}>
+                    <img src={MediumIcon} style={{width: 25}} alt={'medium'}/>&nbsp; Read More at Medium
+                </Button>
+            </Online>
+            <Offline>
+                <Button target={'_blank'} variant="contained" color="secondary" className={'blog--card__button'}>
+                    <img src={MediumIcon} style={{width: 25}} alt={'medium'}/>&nbsp; You are Offline
+                </Button>
+            </Offline>
         </div>
     </div>
 }
