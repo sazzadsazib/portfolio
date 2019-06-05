@@ -31,7 +31,7 @@ To run this project, use this commands,
 You can see live demo of this project here
 
 
-[Live Demo](https://sazib-portfolio.firebaseapp.com/)
+[Live Demo](https://sazib.netlify.com/)
 
 
 
