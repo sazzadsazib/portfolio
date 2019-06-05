@@ -18,6 +18,11 @@ To run this project, use this commands,
 
 ## Change Log
 
+#### 04 June 2019
+
+* Updated Blog using React Spring
+* Blog Support for Offline
+
 #### 18 June 2018
 
 * Updated Service Worker
