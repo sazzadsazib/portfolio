@@ -124,6 +124,16 @@ class SideList extends Component {
                             <ListItemText primary="Design" />
                         </ListItem>
                     </Link>
+                    <Link to={"/cv"}>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Icon>
+                                    art_track
+                                </Icon>
+                            </ListItemIcon>
+                            <ListItemText primary="CV" />
+                        </ListItem>
+                    </Link>
                     <Link to={"/blogs"}>
                         <ListItem button>
                             <ListItemIcon>

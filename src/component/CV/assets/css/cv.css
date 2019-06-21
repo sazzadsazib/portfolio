@@ -1,0 +1,21 @@
+.cv-viewer {
+    width: 95%;
+    padding: 10px;
+    border: 8px solid white;
+    box-sizing: border-box;
+    box-shadow: 1px 0px 10px #ccc;
+    margin: -8px auto 10px;
+    border-radius: 5px;
+}
+.cv-viewer__image {
+    width: 100%;
+}
+.abs-fav-icon__downLeft {
+    position: sticky;
+    bottom: 10px;
+    text-align: end;
+    margin-right: 10px;
+}
+.abs-fav-icon__downLeft > button {
+    margin-right: 10px!important;
+}
