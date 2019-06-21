@@ -12,6 +12,7 @@ import Blogs from "./component/Blogs/Blogs";
 import OpenSource from "./component/OpenSource/OpenSource";
 import ActivityComponent from "./component/Activity/ActivityComponent";
 import DesignComponent from "./component/Design/DesignComponent";
+import CvWrapper from "./component/CV/CvWrapper";
 
 
 class Base extends Component {
@@ -50,6 +51,7 @@ class Base extends Component {
                             <Route  exact path='/blogs' render={(props)=><Blogs StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             <Route  exact path='/contribution' render={(props)=><OpenSource StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             <Route  exact path='/settings' render={(props)=><Settings StalkingTime={this.state.StalkingTime} history={props.history} />}/>
+                            <Route  exact path='/cv' render={(props)=><CvWrapper StalkingTime={this.state.StalkingTime} history={props.history} />}/>
                             {/*you can add user="github username" to fetch specific user git data default: sazzadsazib*/}
                             <Route path='*' exact={true} render={(props)=><Four0Four StalkingTime={this.state.StalkingTime} history={props.history}/>} />
                         </Switch>
