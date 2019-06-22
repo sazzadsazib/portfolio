@@ -84,7 +84,10 @@ class OpenSource extends Component {
         }
     }
     componentDidMount() {
-        setTimeout(()=>this.setState({loadedState: false}),1000)
+        setTimeout(()=>this.setState({loadedState: false}),1000);
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
     }
     render() {
         return(

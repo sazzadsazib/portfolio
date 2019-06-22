@@ -5,6 +5,14 @@ import './assets/css/getStarted.css';
 
 class GetStarted extends Component {
 
+    componentDidMount(){
+        if(localStorage.getItem('currState') === null || this.props.history.location.search === "?rdr=true"){
+            localStorage.setItem('currState',this.props.history.location.pathname);
+        }else {
+            this.props.history.push(localStorage.getItem('currState'));
+        }
+    }
+
     render() {
         return(
 

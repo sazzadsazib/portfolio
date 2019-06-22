@@ -35,6 +35,9 @@ class ActivityComponent extends Component {
             }).catch((e)=>console.log(e)))
     }
     componentDidMount() {
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
         if(localStorage.getItem('activityData') === null ){
             this.fetchData();
         }else {

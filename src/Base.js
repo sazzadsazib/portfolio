@@ -29,9 +29,7 @@ class Base extends Component {
     componentWillMount() {
         window.addEventListener('resize', this.handleWindowSizeChange);
     }
-    componentDidMount() {
-        localStorage.setItem('currState',null);
-    }
+
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleWindowSizeChange);
     }

@@ -16,7 +16,10 @@ class Blogs extends Component {
     }
 
     componentDidMount() {
-        setTimeout(()=>this.setState({loadedState: 1}), this.state.profileDelay)
+        setTimeout(()=>this.setState({loadedState: 1}), this.state.profileDelay);
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
     }
 
     render() {

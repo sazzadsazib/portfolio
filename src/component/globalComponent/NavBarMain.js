@@ -80,7 +80,7 @@ class SideList extends Component {
                     </p>
                 </div>
                 <List component="nav">
-                    <Link to={"/"}>
+                    <Link to={"/?rdr=true"}>
                         <ListItem button>
                         <ListItemIcon>
                             <Icon >subtitles</Icon>
