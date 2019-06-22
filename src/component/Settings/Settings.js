@@ -26,6 +26,12 @@ class Settings extends Component {
         localStorage.clear();
     }
 
+    componentDidMount() {
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
+    }
+
     render() {
         return(
             <div>

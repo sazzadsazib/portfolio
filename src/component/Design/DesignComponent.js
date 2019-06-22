@@ -82,6 +82,12 @@ class DesignComponent extends Component {
         }
     }
 
+    componentDidMount() {
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
+    }
+
     render() {
         return(
             <div>

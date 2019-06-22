@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NavBarMain from "../globalComponent/NavBarMain";
 import './assets/css/profile.css';
-import PhoneIcon from './assets/images/phone-icon.svg';
+// import PhoneIcon from './assets/images/phone-icon.svg';
 import EmailIcon from './assets/images/email-icon.svg';
 import Github from './assets/images/github-icon.svg';
 import Facebook from './assets/images/facebook-icon.svg';
@@ -21,7 +21,7 @@ class Profile extends Component {
         // quick comment using contactLinks to add items by just adding a array item (helps mee for lots of item)
         this.state= {
             contactLinks: [
-                { link: "tel:+8801674716980" , title: "+880 167 471 6980", picture: PhoneIcon},
+                // { link: "tel:+8801674716980" , title: "+880 167 471 6980", picture: PhoneIcon},
                 { link: "mailto:sazib66@gmail.com" , title: "sazib66@gmail.com", picture: EmailIcon},
                 { link: "https://www.facebook.com/sazzzadsazib" , title: "sazzzadsazib", picture: Facebook},
                 { link: "https://github.com/sazzadsazib" , title: "sazzadsazib", picture: Github},
@@ -40,6 +40,10 @@ class Profile extends Component {
         };
     }
 
+    componentDidMount() {
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+    }
 
 
     render() {

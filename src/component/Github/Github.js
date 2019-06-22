@@ -115,6 +115,9 @@ class Github extends Component {
         this.handleClick2();
     }
     componentWillMount() {
+        //storing current state
+        localStorage.setItem('currState',this.props.history.location.pathname);
+
         if(this.props.user) {
             this.setState({
                 usertoFetch: this.props.user,
