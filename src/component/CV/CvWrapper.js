@@ -25,7 +25,7 @@ function CvWrapper(props) {
     useEffect(()=> {
         setTimeout(()=>SetloadedState(false),1000);
         //storing current state
-        localStorage.setItem('currState',this.props.history.location.pathname);
+        localStorage.setItem('currState',props.history.location.pathname);
     },[]);
 
     return(
