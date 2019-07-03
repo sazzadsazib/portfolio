@@ -44,7 +44,7 @@ export default [
         name: "Sazzad Sazib",
         title: "How to use useEffet() for Lifecycle Method",
         description: "So React Hook is pretty popular these days. useState() allows function component to store state. Now many developer who just shifting to function component from class component may face trouble finding how to write componentDidMount or ComponentDidUpdate etc. This blog will help you understand this.",
-        cover: "https://cdn-images-1.medium.com/max/1600/1*SXUULd-oumZFo9jGDLQXQw.png",
+        cover: "https://cdn-images-1.medium.com/max/800/1*SXUULd-oumZFo9jGDLQXQw.png",
         readTime: "2 min Read",
         created_at: "1559838781",
         tags: ["js", "ReactJs", "LifeCycle", "useEffect", "Hook" ],
