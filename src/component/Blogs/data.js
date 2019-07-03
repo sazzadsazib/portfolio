@@ -49,6 +49,16 @@ export default [
         created_at: "1559838781",
         tags: ["js", "ReactJs", "LifeCycle", "useEffect", "Hook" ],
         link: "https://medium.com/misfit-technologies/how-to-use-useeffet-for-lifecycle-method-b9824b16a09a",
+    },{
+        avatar: "https://miro.medium.com/fit/c/256/256/2*71Flu6ES0cwSpNaGPMKPsw.jpeg",
+        name: "Sazzad Sazib",
+        title: "How to Manage Multiple project using firebase hosting…",
+        description: "So you might use firebase hosting to host your app. And for your app you can add multiple firebase app into same project to maintain your staging and production. If you don’t know how firebase hosting works read here",
+        cover: "https://cdn-images-1.medium.com/max/800/0*bD5YwM2aRhbOb5eb.jpg",
+        readTime: "2 min Read",
+        created_at: "1562061600",
+        tags: ["hosting", "ReactJs", "firebase", "management" ],
+        link: "https://medium.com/misfit-technologies/how-to-manage-multiple-project-using-firebase-hosting-83276ff53bd3",
     }
 
 
