@@ -18,7 +18,7 @@
     "react-scripts": "^2.1.8",
     "react-spring": "^8.0.20",
     "react-timeago": "^4.4.0",
-    "react-use-gesture": "^5.0.2"
+    "react-use-gesture": "^6.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
