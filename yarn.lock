@@ -7903,9 +7903,9 @@ react-transition-group@^2.2.1, react-transition-group@^2.4.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-use-gesture@^5.0.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-5.1.2.tgz#3a43526c1174e97b20f966b86b6fb3ecc83dddb0"
+react-use-gesture@^6.0.12:
+  version "6.0.12"
+  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-6.0.12.tgz#33574a2222eace64f0fe027c91e886463862b15c"
 
 react@^16.8.3:
   version "16.8.6"
