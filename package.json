@@ -34,7 +34,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
+    "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^7.5.0",
     "husky": "^3.0.9"
   },
