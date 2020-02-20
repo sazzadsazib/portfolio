@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import sazib from './assets/images/sazib-getstarted-main.svg';
 import {Link} from 'react-router-dom';
 import './assets/css/getStarted.css';
+import Sign from './assets/images/sign.svg';
 
 class GetStarted extends Component {
 
@@ -28,8 +29,8 @@ class GetStarted extends Component {
                 </div>
                 <div className="container-getStarted">
                     <img className="my-illustration" src={sazib} alt="Meh"/>
-                    <p className="getStarted-center-title">Hello</p>
-                    <p className="getStarted-center-subtitle">I am Sazzad</p>
+                    <p className="getStarted-center-title">Hey There! I AM</p>
+                    <img className='getStarted-center-sign' src={Sign} alt='sign'/>
                     <p className="getStarted-clickhere">Click <span className="gradient-text">GET STARTED</span> to Continue</p>
                     <Link style={{color: '#ffffff'}} to={'/profile'}>
                         <button className="getStarted-continue-button gradient-button">Get Started</button>

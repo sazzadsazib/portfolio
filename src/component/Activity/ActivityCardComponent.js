@@ -59,7 +59,7 @@ function ActivityCardComponent(props) {
         switch (props.type){
             case "IssueCommentEvent":
                 return <span>
-                    Has Commented on a <a target={'_blank'} style={{fontWeight: 'bold', color: '#42a5f5'}} href={props.payload.issue.html_url}>Issue</a></span>;
+                    Has Commented on a <a rel="noopener noreferrer" target={'_blank'} style={{fontWeight: 'bold', color: '#42a5f5'}} href={props.payload.issue.html_url}>Issue</a></span>;
             case "PushEvent":
                 return <span>Has Pushed {props.payload.size} commit to <span style={{fontWeight: 'bold', color: '#42a5f5'}}>{props.repo.name}</span></span>;
             case "DeleteEvent":
@@ -67,31 +67,31 @@ function ActivityCardComponent(props) {
             case "PullRequestEvent":
                 return <span>
                     <span className={classes.capitalize}>{props.payload.action}</span> a Pull Request on &nbsp;
-                    <a target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.repo.name}</a>
+                    <a rel="noopener noreferrer" target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.repo.name}</a>
                 </span>;
             case "CreateEvent":
                 return <span>Created a {props.payload.ref_type} <span style={{fontWeight: 'bold', color: '#42a5f5'}}>{props.payload.ref}</span></span>;
             case "PullRequestReviewCommentEvent":
-                return <span>Has Commented on a Pull Request <a target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.payload.pull_request.title}</a></span>;
+                return <span>Has Commented on a Pull Request <a rel="noopener noreferrer" target={'_blank'} href={props.payload.pull_request.html_url} style={{color: '#218cef'}}>{props.payload.pull_request.title}</a></span>;
             case "WatchEvent":
                 let url = ''+props.repo.url;
                 url = url.replace('api.','');
                 url = url.replace('/repos','');
-                return <span>Has a starred <a style={{color: '#218cef'}} target={'_blank'} href={url}>{props.repo.name}</a></span>;
+                return <span>Has a starred <a style={{color: '#218cef'}}  rel="noopener noreferrer" target={'_blank'} href={url}>{props.repo.name}</a></span>;
             case "GollumEvent":
                 let urlG = ''+props.repo.url;
                 urlG = urlG.replace('api.','');
                 urlG = urlG.replace('/repos','');
-                return <span>Has Updated Wiki on <a style={{color: '#218cef'}} target={'_blank'} href={urlG}>{props.repo.name}</a> </span>;
+                return <span>Has Updated Wiki on <a style={{color: '#218cef'}} rel="noopener noreferrer" target={'_blank'} href={urlG}>{props.repo.name}</a> </span>;
             case "IssuesEvent":
-                return <span>Has {props.payload.action} an <a style={{color: '#218cef'}}  target={"_blank"} href={props.payload.issue.html_url}> Issue</a></span>;
+                return <span>Has {props.payload.action} an <a style={{color: '#218cef'}} rel="noopener noreferrer"  target={"_blank"} href={props.payload.issue.html_url}> Issue</a></span>;
             case "CommitCommentEvent":
                 return 'Triggered when a commit comment is created.';
             case "ForkEvent":
                 let urlFE = ''+props.repo.url;
                 urlFE = urlFE.replace('api.','');
                 urlFE = urlFE.replace('/repos','');
-                return <span>Has Forked <a style={{color: '#218cef'}} target={'_blank'} href={urlFE}>{props.repo.name}</a> </span>;
+                return <span>Has Forked <a style={{color: '#218cef'}} rel="noopener noreferrer" target={'_blank'} href={urlFE}>{props.repo.name}</a> </span>;
             case "LabelEvent":
                 return 'Triggered when a repositorys label is created, edited, or deleted.';
             case "MilestoneEvent":
@@ -283,7 +283,7 @@ function ActivityCardComponent(props) {
                 </div>
             </CardContent>
             <CardActions>
-                <Button className={classes.githubButton} target={'_blank'} href={getLink(event)} size="small">See In Github</Button>
+                <Button className={classes.githubButton} rel="noopener noreferrer" target={'_blank'} href={getLink(event)} size="small">See In Github</Button>
             </CardActions>
             <br/>
         </Card>

@@ -26,7 +26,7 @@ function CvWrapper(props) {
         setTimeout(()=>SetloadedState(false),1000);
         //storing current state
         localStorage.setItem('currState',props.history.location.pathname);
-    },[]);
+    },[props.history.location.pathname]);
 
     return(
         <div>

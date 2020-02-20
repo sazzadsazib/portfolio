@@ -36,10 +36,14 @@ body{
     -webkit-text-fill-color: transparent;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    margin: 0px;
+    margin: 0;
+}
+.getStarted-center-sign {
+   margin: 20px auto -20px;
+    width: 50%;
 }
 .getStarted-clickhere {
-    margin: 10vh 0px 0px;
+    margin: 10vh 0 0;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 0.7em;
@@ -62,7 +66,7 @@ body{
     color: #fff;
     font-size: 20px;
     border: none;
-    box-shadow: 0px 3px 10px rgba(0, 152, 243, 0.26)
+    box-shadow: 0 3px 10px rgba(0, 152, 243, 0.26)
 
 }
 .getStarted-continue-button:focus,.getStarted-continue-button:active {
@@ -74,7 +78,7 @@ a{
 }
 .gradient-button:hover {
     background: -webkit-linear-gradient(270deg,#0098F3,#6650E0);
-    box-shadow: 0px 3px 10px rgba(0, 152, 243, 0.46);
+    box-shadow: 0 3px 10px rgba(0, 152, 243, 0.46);
     cursor: pointer;
 }
 

@@ -97,6 +97,7 @@ class CardComponent extends React.Component {
                     </IconButton>
                     <IconButton
                         href={this.props.GithubLink}
+                        rel="noopener noreferrer"
                         target={'_blank'}
                         className={classnames(classes.expand)}>
                         <SvgIcon>
@@ -106,6 +107,7 @@ class CardComponent extends React.Component {
 
                     <IconButton
                         href={this.props.link}
+                        rel="noopener noreferrer"
                         target={'_blank'}
                         aria-label="Visit"
                         className={classnames(classes.expand)}>
