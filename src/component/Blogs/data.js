@@ -40,16 +40,17 @@ export default [
         tags: ["js", "ReactJs", "Service Worker", "Fireabse", "PWA" ],
         link: "https://medium.com/@sazzadsazib/how-to-send-notification-to-react-app-using-firebase-f257d4bdca28",
     },{
-        avatar: "https://miro.medium.com/fit/c/256/256/2*71Flu6ES0cwSpNaGPMKPsw.jpeg",
-        name: "Sazzad Sazib",
-        title: "How to use useEffet() for Lifecycle Method",
-        description: "So React Hook is pretty popular these days. useState() allows function component to store state. Now many developer who just shifting to function component from class component may face trouble finding how to write componentDidMount or ComponentDidUpdate etc. This blog will help you understand this.",
-        cover: "https://cdn-images-1.medium.com/max/1600/1*SXUULd-oumZFo9jGDLQXQw.png",
-        readTime: "2 min Read",
-        created_at: "1559838781",
-        tags: ["js", "ReactJs", "LifeCycle", "useEffect", "Hook" ],
-        link: "https://medium.com/misfit-technologies/how-to-use-useeffet-for-lifecycle-method-b9824b16a09a",
-    }
+    avatar: "https://miro.medium.com/fit/c/256/256/2*71Flu6ES0cwSpNaGPMKPsw.jpeg",
+    name: "Sazzad Sazib",
+    title: "How to use useEffet() for Lifecycle Method",
+    description: "So React Hook is pretty popular these days. useState() allows function component to store state. Now many developer who just shifting to function component from class component may face trouble finding how to write componentDidMount or ComponentDidUpdate etc. This blog will help you understand this.",
+    cover: "https://cdn-images-1.medium.com/max/1600/1*SXUULd-oumZFo9jGDLQXQw.png",
+    readTime: "2 min Read",
+    created_at: "1559838781",
+    tags: ["js", "ReactJs", "LifeCycle", "useEffect", "Hook" ],
+    link: "https://medium.com/misfit-technologies/how-to-use-useeffet-for-lifecycle-method-b9824b16a09a",
+  }
+  
 
 
 ];

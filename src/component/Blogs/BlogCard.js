@@ -38,9 +38,9 @@ function BlogCard(props) {
             : ' '}
             <br/>
         <img src={props.cover} style={{width: '100%'}} alt={'blog-cover'} />
-        <Typography variant="caption" style={{marginTop: 5}}>
-            {props.description.length > 160 ? props.description.substring(0,160)+"..." : props.description}
-        </Typography>
+        {/*<Typography variant="caption" style={{marginTop: 5}}>*/}
+            {/*{props.description.length > 160 ? props.description.substring(0,160)+"..." : props.description}*/}
+        {/*</Typography>*/}
         <br/>
         <div className={'blog--card__centerdiv'}>
             <Online>
